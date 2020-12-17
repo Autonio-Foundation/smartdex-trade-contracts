@@ -19,7 +19,7 @@ import { fetchAsync } from '@0x/utils';
 import * as _ from 'lodash';
 import * as queryString from 'query-string';
 
-import { Client, HttpRequestOptions, HttpRequestType } from './types';
+import { Client, HttpRequestOptions, HttpRequestType, SubmitMarketOrderParams } from './types';
 import { relayerResponseJsonParsers } from './utils/relayer_response_json_parsers';
 
 const TRAILING_SLASHES_REGEX = /\/+$/;
@@ -181,6 +181,13 @@ export class HttpClient implements Client {
             payload: signedOrder,
         };
         await this._requestAsync('/order', HttpRequestType.Post, httpRequestOpts);
+    }
+    public async submitMarketOrderAsync(params: SubmitMarketOrderParams, requestOpts?: RequestOpts): Promise<void> {
+        const httpRequestOpts = {
+            params: requestOpts,
+            payload: params,
+        };
+        await this._requestAsync('/market', HttpRequestType.Post, httpRequestOpts);
     }
     private async _requestAsync(
         path: string,

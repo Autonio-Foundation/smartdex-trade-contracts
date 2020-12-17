@@ -14,6 +14,14 @@ import {
     SignedOrder,
 } from '@0x/types';
 
+export interface SubmitMarketOrderParams {
+    dt?: Date;
+    bid?: number;
+    ask?: number;
+    bid_vol?: number;
+    ask_vol?: number;
+}
+
 export interface Client {
     getAssetPairsAsync: (
         requestOpts?: AssetPairsRequestOpts & PagedRequestOpts,
@@ -24,6 +32,7 @@ export interface Client {
     getOrderConfigAsync: (request: OrderConfigRequest) => Promise<OrderConfigResponse>;
     getFeeRecipientsAsync: (requestOpts?: PagedRequestOpts) => Promise<FeeRecipientsResponse>;
     submitOrderAsync: (signedOrder: SignedOrder) => Promise<void>;
+    submitMarketOrderAsync: (params: SubmitMarketOrderParams) => Promise<void>;
 }
 
 export interface OrdersChannel {
