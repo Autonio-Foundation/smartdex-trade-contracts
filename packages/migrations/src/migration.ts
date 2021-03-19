@@ -197,7 +197,7 @@ export async function runMigrationsAsync(
     );
 
     // Multisigs
-    const accounts: string[] = ['0x56F65dCD821c660b4f3E833696747F5D8e3C537B', '0x685A01B16909eC890B548D9DFf6E7ABF4ec0A24e'];
+    const accounts: string[] = ['0x0B21E617B31fbF44F5f4C90CF8d845EcF6309B9F', '0x1242a09776F6979B3D9a1c5C797fCEf7E80cB659'];
     const owners = _.uniq([accounts[0], accounts[1], txDefaults.from]);
     const confirmationsRequired = new BigNumber(2);
     const secondsRequired = new BigNumber(0);

@@ -16,6 +16,9 @@ export interface ContractAddresses {
     staticCallProxy: string;
     erc1155Proxy: string;
     devUtils: string;
+    usdtToken: string;
+    nioxToken: string;
+
 }
 
 export enum NetworkId {
@@ -24,7 +27,7 @@ export enum NetworkId {
     Rinkeby = 4,
     Kovan = 42,
     Ganache = 50,
-    Matic = 8995,
+    Matic = 137,
 }
 
 const NULL_ADDRESS = '0x0000000000000000000000000000000000000000';
@@ -46,6 +49,8 @@ const networkToAddresses: { [networkId: number]: ContractAddresses } = {
         staticCallProxy: '0x3517b88c19508c08650616019062b898ab65ed29',
         erc1155Proxy: '0x7eefbd48fd63d441ec7435d024ec7c5131019add',
         devUtils: '0x92d9a4d50190ae04e03914db2ee650124af844e6',
+        usdtToken: '0x7eefbd48fd63d441ec7435d024ec7c5131019add',
+        nioxToken: '0x92d9a4d50190ae04e03914db2ee650124af844e6',
     },
     3: {
         erc20Proxy: '0xb1408f4c245a23c31b98d2c626777d4c0d766caa',
@@ -63,6 +68,8 @@ const networkToAddresses: { [networkId: number]: ContractAddresses } = {
         staticCallProxy: '0xe1b97e47aa3796276033a5341e884d2ba46b6ac1',
         erc1155Proxy: '0x19bb6caa3bc34d39e5a23cedfa3e6c7e7f3c931d',
         devUtils: '0x3e0b46bad8e374e4a110c12b832cb120dbe4a479',
+        usdtToken: '0x7eefbd48fd63d441ec7435d024ec7c5131019add',
+        nioxToken: '0x92d9a4d50190ae04e03914db2ee650124af844e6',
     },
     4: {
         exchange: '0xbff9493f92a3df4b0429b6d00743b3cfb4c85831',
@@ -80,6 +87,8 @@ const networkToAddresses: { [networkId: number]: ContractAddresses } = {
         staticCallProxy: '0xe1b97e47aa3796276033a5341e884d2ba46b6ac1',
         erc1155Proxy: '0x19bb6caa3bc34d39e5a23cedfa3e6c7e7f3c931d',
         devUtils: '0x2d4a9abda7b8b3605c8dbd34e3550a7467c78287',
+        usdtToken: '0x7eefbd48fd63d441ec7435d024ec7c5131019add',
+        nioxToken: '0x92d9a4d50190ae04e03914db2ee650124af844e6',
     },
     42: {
         erc20Proxy: '0xf1ec01d6236d3cd881a0bf0130ea25fe4234003e',
@@ -97,6 +106,8 @@ const networkToAddresses: { [networkId: number]: ContractAddresses } = {
         staticCallProxy: '0x48e94bdb9033640d45ea7c721e25f380f8bffa43',
         erc1155Proxy: '0x64517fa2b480ba3678a2a3c0cf08ef7fd4fad36f',
         devUtils: '0x1e3616bc5144362f95d72de41874395567697e93',
+        usdtToken: '0x7eefbd48fd63d441ec7435d024ec7c5131019add',
+        nioxToken: '0x92d9a4d50190ae04e03914db2ee650124af844e6',
     },
     // NetworkId 50 represents our Ganache snapshot generated from migrations.
     50: {
@@ -115,23 +126,27 @@ const networkToAddresses: { [networkId: number]: ContractAddresses } = {
         multiAssetProxy: '0xcfc18cec799fbd1793b5c43e773c98d4d61cc2db',
         staticCallProxy: '0x6dfff22588be9b3ef8cf0ad6dc9b84796f9fb45f',
         devUtils: '0x38ef19fdf8e8415f18c307ed71967e19aac28ba1',
+        usdtToken: '0x7eefbd48fd63d441ec7435d024ec7c5131019add',
+        nioxToken: '0x92d9a4d50190ae04e03914db2ee650124af844e6',
     },
-    8995: {
-        exchange: '0xd30d3d36daa6da31d481c19eaccd94558c1aa594',
-        erc20Proxy: '0x0a53e142138c0d68f5cf968cc74c6f633df57f6b',
-        erc721Proxy: '0x8fb632da59e73450e097847c0c75608f79770182',
-        erc1155Proxy: '0xcc270ac66fdde50ea78c6e6a4a334739a2e3f59d',
-        forwarder: '0x51eb0db2c4a7bcfe18f83f3bdbfaec604056cb03',
-        orderValidator: '0x0a999c924736b8ec96f01fc959365ebd999a8dab',
-        zrxToken: '0xb1b57aca0977fdc772bda3ee292b189f363bcea0',
-        etherToken: '0xbf4263c8842b48c2f7cb1ceb237ae0207952edab',
-        assetProxyOwner: '0x1f02042d523d9d8b5eafe6eb6d2945b1cf14dd2d',
-        dutchAuction: '0xc06123a6a87f9866cd74952d3436a78a37a3a46b',
-        coordinatorRegistry: '0x9ab4d2039e07d08178fac0964cf967f3bd2e25e7',
-        coordinator: '0xa100ac285e42e62b8d802428d715963f18932aab',
-        multiAssetProxy: '0x3cf1c836071578a1e900236abf9d2ef0c966c53a',
-        staticCallProxy: '0x66dafa927c0b36954b67508ad2ee065ac1715024',
-        devUtils: '0x944131374d60fbdc8d99a05cfd42bb23d33142d9',
+    137: {
+        exchange: '0x08330ac7b7f4a6695f41e3b8419113534cd61df0',
+        erc20Proxy: '0x66dc3b01f674b6c960cf60f3fb78e16342553cab',
+        erc721Proxy: '0xb5d157ef45d8bfc9c413d00d0e902fe6a3ddbf8b',
+        erc1155Proxy: '0xade2af52f3dbe515e4abae89cfad06e6e60ff049',
+        forwarder: '0x995fde61633433fdb6d2c6f7ca885255d526f5c7',
+        orderValidator: '0xab979e26f455465b094778b4717918e64d06c2dc',
+        zrxToken: '0x93719d8478d238c5996806a733e2068e0ead0b0e',
+        etherToken: '0x6f3b2e10972cd42219f4108e72e9e15a616e5ba9',
+        assetProxyOwner: '0x8b8ebd096ed2ba7f415b5c185511eee8be59f814',
+        dutchAuction: '0xb399ee7b4cb4344958bc47652b886c63493e3e42',
+        coordinatorRegistry: '0x9928a61ad210ae32e129d94195f27c556d33f963',
+        coordinator: '0x8b259a94e4b23816b2751c04dc03f9953ed91034',
+        multiAssetProxy: '0x636168180a78687127ee8479893f0a2f5eb7a640',
+        staticCallProxy: '0xc3bf2397eac18ff4107f6edf68e62aff1b11990d',
+        devUtils: '0x35a6d26072d5b25c6dff261c756b0bf142e7c21b',
+        usdtToken: '0xc2132D05D31c914a87C6611C10748AEb04B58e8F',
+        nioxToken: '0xad684e79CE4b6D464f2Ff7c3FD51646892e24b96',
     },
 };
 
